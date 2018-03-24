@@ -1,0 +1,11 @@
+imageNum = 1;
+for k = size(centers, 2);
+    holderArray = zeros(sqrt(size(centers, 1)), sqrt(size(centers, 1)), size(centers, 2));
+    for i = 1:sqrt(size(centers, 1))
+        for j = 1:sqrt(size(centers,1))
+            holderArray(i,mod(j, 28)+1) = centers((i-1)*28 + j, 5);
+        end
+    end
+    im = image(holderArray,'CDataMapping', 'scaled');
+    disp(im);
+    saveas(im, 'image1.png', 'png');
